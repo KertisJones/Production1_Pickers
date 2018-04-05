@@ -209,8 +209,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07586c462d9e79469cd6cf584ff8565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minPrice: 0
-  currentPrice: 100
-  minPriceThreshold: 4.1
-  currentPriceThreshold: 5
-  anger: 0
+--- !u!1 &1363917399
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1363917401}
+  - component: {fileID: 1363917400}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: GameManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1363917400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1363917399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ddd7a6c3419913469c2718ec126f5de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMoney: 1000
+--- !u!4 &1363917401
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1363917399}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
