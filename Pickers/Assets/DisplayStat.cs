@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DisplayStat : MonoBehaviour {
 
     private Text txt;
-    private DealMaster persistentScript;
+    private DealMaster dealMaster;
 
     public enum StatType { currentPrice, itemBaseValue, previousOffer };
     public StatType statType;
@@ -14,42 +14,45 @@ public class DisplayStat : MonoBehaviour {
     void Start()
     {
         txt = GetComponent<Text>();
-        persistentScript = GameObject.FindGameObjectWithTag("DealMaster").GetComponent<DealMaster>();
+		dealMaster = GameObject.FindGameObjectWithTag("DealMaster").GetComponent<DealMaster>();
     }
 
     // Update is called once per frame
     void Update()
     {
+		if (dealMaster == null)
+			dealMaster = GameObject.FindGameObjectWithTag("DealMaster").GetComponent<DealMaster>();
+		
         if (statType == StatType.currentPrice)
         {
-            if (persistentScript.playerCounterOfferPrevious == 0) {
+			if (dealMaster.playerCounterOfferPrevious == 0) {
                 txt.text = "";
             }
-            else if (persistentScript.dealMade)
+			else if (dealMaster.dealMade)
             {
                 txt.text = "Deal!";
             }
             else {
-                txt.text = "Asking Price: $" + persistentScript.sellerCurrentPrice;
+				txt.text = "Asking Price: $" + dealMaster.sellerCurrentPrice;
             }
         }
         if (statType == StatType.itemBaseValue)
         {
-            if (persistentScript.hideValue)
+			if (dealMaster.hideValue)
             {
-                if (persistentScript.itemBaseValue < 140)
+				if (dealMaster.itemBaseValue < 140)
                 {
                     txt.text = "Item Value: Hmm... That's probably worth less than $100";
                 }
-                else if (persistentScript.itemBaseValue < 750)
+				else if (dealMaster.itemBaseValue < 750)
                 {
                     txt.text = "Item Value: Hmm... That's probably worth a few hundred";
                 }
-                else if (persistentScript.itemBaseValue < 1500)
+				else if (dealMaster.itemBaseValue < 1500)
                 {
                     txt.text = "Item Value: Hmm... That's probably around a thousand";
                 }
-                else if (persistentScript.itemBaseValue < 7500)
+				else if (dealMaster.itemBaseValue < 7500)
                 {
                     txt.text = "Item Value: Hmm... That's probably around a few thousand";
                 }
@@ -60,19 +63,19 @@ public class DisplayStat : MonoBehaviour {
             }
             else
             {
-                txt.text = "Item Value: $" + persistentScript.itemBaseValue;
+				txt.text = "Item Value: $" + dealMaster.itemBaseValue;
             }
         }
         else if (statType == StatType.previousOffer)
         {
-            if (persistentScript.playerCounterOfferPrevious != 0)
-                txt.text = "Previous Offer: $" + persistentScript.playerCounterOfferPrevious;
+			if (dealMaster.playerCounterOfferPrevious != 0)
+				txt.text = "Previous Offer: $" + dealMaster.playerCounterOfferPrevious;
             else
                 txt.text = "";
 
-            if (persistentScript.dealMade)
+			if (dealMaster.dealMade)
             {
-                txt.text = "Ammount Spent: $" + persistentScript.playerCounterOfferPrevious;
+				txt.text = "Ammount Spent: $" + dealMaster.playerCounterOfferPrevious;
                 this.GetComponent<RectTransform>().localPosition = new Vector2(0, 0);
             }
         }/*
