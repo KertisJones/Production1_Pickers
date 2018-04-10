@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour {
 
 	//This script will be persitent through changing scenes 
 	private static bool created = false;
+    //private GameObject restartButton;
+
 
 	public int playerMoney = 1000;
 
@@ -15,7 +17,7 @@ public class GameManager : MonoBehaviour {
 		{
 			DontDestroyOnLoad(this.gameObject);
 			created = true;
-			Debug.Log("Awake: " + this.gameObject);
+			//Debug.Log("Awake: " + this.gameObject);
 		}
 	}
 
@@ -26,6 +28,9 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        //if (restartButton == null)
+        //{
+        //    restartButton = GameObject.FindGameObjectWithTag("RESTARTButton");
+        //}
 	}
 }
