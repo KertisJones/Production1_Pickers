@@ -68,9 +68,11 @@ public class DealMaster : MonoBehaviour {
 
     void counterClick()
     {
-        makeOffer(System.Convert.ToInt32(counterOfferInput.GetComponent<InputField>().text));
-        counterOfferInput.GetComponent<InputField>().text = "";
-        counterOfferInput.GetComponentInChildren<Text>().text = "";
+		if (counterOfferInput.GetComponent<InputField> ().text != "") {
+			makeOffer (System.Convert.ToInt32 (counterOfferInput.GetComponent<InputField> ().text));
+			counterOfferInput.GetComponent<InputField> ().text = "";
+			counterOfferInput.GetComponentInChildren<Text> ().text = "";
+		}
     }
 
 	void makeOffer(int counterOffer) {
