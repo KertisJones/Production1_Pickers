@@ -64,6 +64,8 @@ public class DealMaster : MonoBehaviour {
 	void Update () {
 		if (sellerCurrentPrice < sellerMinPrice)
 			sellerCurrentPrice = sellerMinPrice;
+		if (Input.GetButtonDown ("Submit"))
+			counterClick ();
 	}
 
     void counterClick()
