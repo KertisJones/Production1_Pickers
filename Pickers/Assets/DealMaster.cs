@@ -42,7 +42,7 @@ public class DealMaster : MonoBehaviour {
         sellerMinPrice = Mathf.RoundToInt(itemSentimentalValue * Random.Range(0.2f, 0.6f));
 
         sellerMinPriceThreshold = Mathf.RoundToInt(sellerMinPrice * Random.Range(0.075f, 0.2f));
-        sellerCurrentPriceThreshold = Mathf.RoundToInt(sellerMinPrice * Random.Range(0.075f, 0.2f));
+        sellerCurrentPriceThreshold = Mathf.RoundToInt(sellerCurrentPrice * Random.Range(0.075f, 0.2f));
     }
 
     int RandomSign()
@@ -141,7 +141,8 @@ public class DealMaster : MonoBehaviour {
                     //sellerCurrentPrice = sellerCurrentPrice - (differenceInOffer / 100);
                     if (sellerCurrentPrice - (differenceInOffer / 100) > counterOffer + sellerCurrentPriceThreshold)
                     {
-                        sellerCurrentPrice = sellerCurrentPrice - (differenceInOffer / 100);
+                        sellerCurrentPrice = sellerCurrentPrice - ((counterOffer - sellerMinPrice) / 2);
+                        Debug.Log("Offer under over min price, but last offer was under threshold. Reduce price via min price,");
                     }
                     else
                     {
@@ -152,7 +153,17 @@ public class DealMaster : MonoBehaviour {
                 }
                 else
                 {
-                    sellerCurrentPrice = sellerCurrentPrice - (differenceInOffer / 10);
+                    if (sellerCurrentPrice - (differenceInOffer / 10) > counterOffer + sellerCurrentPriceThreshold)
+                    {
+                        sellerCurrentPrice = sellerCurrentPrice - (differenceInOffer / 10);
+                        Debug.Log("Offer under Min price, reduce price less");
+                    }
+                    else
+                    {
+                        sellerCurrentPrice = counterOffer;
+                        sellItem();
+                        Debug.Log("That's a fair price. I'll take it.");
+                    }
                 }
 
                 Debug.Log("Normal offer, reduce asking price.");
