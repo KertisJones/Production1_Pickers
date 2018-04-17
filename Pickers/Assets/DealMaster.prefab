@@ -1989,6 +1989,7 @@ MonoBehaviour:
   itemBaseValue: 50
   dealOver: 0
   dealMade: 0
+  notEnoughMoney: 0
   hideValue: 1
   playerCounterOfferPrevious: 0
   sellerCurrentPrice: 100
@@ -2002,6 +2003,7 @@ MonoBehaviour:
   restartButton: {fileID: 1346676794766618}
   counterOfferInput: {fileID: 1017119965190752}
   finalButton: {fileID: 1812533013658274}
+  dealClip: {fileID: 8300000, guid: 8775773211374dc44ae704a31dcccee0, type: 3}
 --- !u!114 &114481301112031472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3521,7 +3523,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 175, y: -75}
-  m_SizeDelta: {x: 209, y: 66}
+  m_SizeDelta: {x: 96, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224071158882920594
 RectTransform:
@@ -3912,7 +3914,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -75}
-  m_SizeDelta: {x: 131, y: 66}
+  m_SizeDelta: {x: 96, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224543862332528244
 RectTransform:
@@ -3950,7 +3952,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -225, y: -75}
-  m_SizeDelta: {x: 119, y: 66}
+  m_SizeDelta: {x: 96, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224589829470874280
 RectTransform:
@@ -4027,7 +4029,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -125, y: -75}
-  m_SizeDelta: {x: 100, y: 66}
+  m_SizeDelta: {x: 96, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224663371301005328
 RectTransform:
@@ -4299,8 +4301,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -75}
-  m_SizeDelta: {x: 149, y: 66}
+  m_AnchoredPosition: {x: 0, y: -120}
+  m_SizeDelta: {x: 96, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224972555519504228
 RectTransform:

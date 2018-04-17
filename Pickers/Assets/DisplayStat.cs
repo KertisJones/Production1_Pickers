@@ -8,85 +8,100 @@ public class DisplayStat : MonoBehaviour {
     private Text txt;
     private DealMaster dealMaster;
 
-    public enum StatType { currentPrice, itemBaseValue, previousOffer };
+    public enum StatType { currentPrice, itemBaseValue, previousOffer, playerMoney };
     public StatType statType;
     // Use this for initialization
     void Start()
     {
         txt = GetComponent<Text>();
-		dealMaster = GameObject.FindGameObjectWithTag("DealMaster").GetComponent<DealMaster>();
+		//dealMaster = GameObject.FindGameObjectWithTag("DealMaster").GetComponent<DealMaster>();
     }
 
     // Update is called once per frame
     void Update()
     {
-		if (dealMaster == null)
+		if (dealMaster == null && GameObject.FindGameObjectWithTag("DealMaster") != null)
 			dealMaster = GameObject.FindGameObjectWithTag("DealMaster").GetComponent<DealMaster>();
-		
-        if (statType == StatType.currentPrice)
+        if (dealMaster != null)
         {
-			if (dealMaster.playerCounterOfferPrevious == 0) {
-                txt.text = "";
-            }
-			else if (dealMaster.dealMade)
+            if (statType == StatType.currentPrice)
             {
-                txt.text = "Deal!";
-            }
-            else if (dealMaster.dealOver && !dealMaster.dealMade)
-            {
-                txt.text = "";
-            }
-            else {
-				txt.text = "Asking Price: $" + dealMaster.sellerCurrentPrice;
-            }
-        }
-        if (statType == StatType.itemBaseValue)
-        {
-			if (dealMaster.hideValue)
-            {
-				if (dealMaster.itemBaseValue < 140)
+                if (dealMaster.playerCounterOfferPrevious == 0)
                 {
-                    txt.text = "Item Value: Hmm... That's probably worth less than $100";
+                    txt.text = "";
                 }
-				else if (dealMaster.itemBaseValue < 750)
+                else if (dealMaster.dealMade)
                 {
-                    txt.text = "Item Value: Hmm... That's probably worth a few hundred";
+                    txt.text = "Deal!";
                 }
-				else if (dealMaster.itemBaseValue < 1500)
+                else if (dealMaster.dealOver && !dealMaster.dealMade)
                 {
-                    txt.text = "Item Value: Hmm... That's probably around a thousand";
-                }
-				else if (dealMaster.itemBaseValue < 7500)
-                {
-                    txt.text = "Item Value: Hmm... That's probably around a few thousand";
+                    txt.text = "";
                 }
                 else
                 {
-                    txt.text = "Item Value: This is a big ticket item, right here!";
+                    txt.text = "Asking Price: $" + dealMaster.sellerCurrentPrice;
                 }
             }
-            else
+            if (statType == StatType.itemBaseValue)
             {
-				txt.text = "Item Value: $" + dealMaster.itemBaseValue;
+                if (dealMaster.hideValue)
+                {
+                    if (dealMaster.itemBaseValue < 140)
+                    {
+                        txt.text = "Item Value: Hmm... That's probably worth less than $100";
+                    }
+                    else if (dealMaster.itemBaseValue < 750)
+                    {
+                        txt.text = "Item Value: Hmm... That's probably worth a few hundred";
+                    }
+                    else if (dealMaster.itemBaseValue < 1500)
+                    {
+                        txt.text = "Item Value: Hmm... That's probably around a thousand";
+                    }
+                    else if (dealMaster.itemBaseValue < 7500)
+                    {
+                        txt.text = "Item Value: Hmm... That's probably around a few thousand";
+                    }
+                    else
+                    {
+                        txt.text = "Item Value: This is a big ticket item, right here!";
+                    }
+                }
+                else
+                {
+                    txt.text = "Item Value: $" + dealMaster.itemBaseValue;
+                }
+            }
+            if (statType == StatType.previousOffer)
+            {
+                if (dealMaster.playerCounterOfferPrevious != 0)
+                    txt.text = "Previous Offer: $" + dealMaster.playerCounterOfferPrevious;
+                else
+                    txt.text = "";
+
+                if (dealMaster.dealMade)
+                {
+                    txt.text = "Ammount Spent: $" + dealMaster.playerCounterOfferPrevious;
+                    this.GetComponent<RectTransform>().localPosition = new Vector2(0, 0);
+                }
+                else if (dealMaster.dealOver && !dealMaster.dealMade)
+                {                    
+                    this.GetComponent<RectTransform>().localPosition = new Vector2(0, 0);
+                    if (dealMaster.notEnoughMoney)
+                    {
+                        txt.text = "You don't have the money!";
+                    }
+                    else
+                    {
+                        txt.text = "No Deal.";
+                    }
+                }
             }
         }
-        else if (statType == StatType.previousOffer)
+        if (statType == StatType.playerMoney)
         {
-			if (dealMaster.playerCounterOfferPrevious != 0)
-				txt.text = "Previous Offer: $" + dealMaster.playerCounterOfferPrevious;
-            else
-                txt.text = "";
-
-			if (dealMaster.dealMade)
-            {
-				txt.text = "Ammount Spent: $" + dealMaster.playerCounterOfferPrevious;
-                this.GetComponent<RectTransform>().localPosition = new Vector2(0, 0);
-            }
-            else if (dealMaster.dealOver && !dealMaster.dealMade)
-            {
-                txt.text = "No Deal.";
-                this.GetComponent<RectTransform>().localPosition = new Vector2(0, 0);
-            }
+            txt.text = "$" + string.Format("{0:n0}", GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().playerMoney);
         }/*
         else if (statType == StatType.Yeast)
         {

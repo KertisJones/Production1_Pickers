@@ -10,8 +10,10 @@ public class GameManager : MonoBehaviour {
     //private GameObject restartButton;
 	public GameObject dealMasterPrefab;
 	public GameObject dealMaster;
+    public GameObject currentItem;
 
 	public int playerMoney = 1000;
+    public int playerItemValue = 0;
 
     public bool triggerNegotiation = false;
 

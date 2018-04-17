@@ -9,7 +9,9 @@ public class DealMaster : MonoBehaviour {
     private int itemSentimentalValue = 0;
     public bool dealOver = false;
     public bool dealMade = false;
+    public bool notEnoughMoney = false;
     public bool hideValue = true;
+    
 
     public int playerCounterOfferPrevious = 0;
 
@@ -27,10 +29,15 @@ public class DealMaster : MonoBehaviour {
     public GameObject restartButton;
     public GameObject counterOfferInput;
     public GameObject finalButton;
+    public AudioClip dealClip;
+
+    public GameObject currentItem;
 
     // Use this for initialization
     void Start () {
 		gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
+
+        currentItem = gm.currentItem;
 
         counterOfferButton.GetComponent<Button>().onClick.AddListener(delegate { counterClick(); });
         dealButton.GetComponent<Button>().onClick.AddListener(delegate { sellItem(); });
@@ -38,7 +45,7 @@ public class DealMaster : MonoBehaviour {
         noDealButton.GetComponent<Button>().onClick.AddListener(delegate { noDeal(); });
         finalButton.GetComponent<Button>().onClick.AddListener(delegate { finalOffer(); });
 
-        itemBaseValue = Mathf.RoundToInt(Random.Range(50f, 10000f));
+        itemBaseValue = currentItem.GetComponent<ClickedOnAntique>().itemValue;
 
         itemSentimentalValue = Mathf.RoundToInt(itemBaseValue + Random.Range(0.8f, 1.2f) * RandomSign());
 
@@ -66,8 +73,17 @@ public class DealMaster : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (sellerCurrentPrice < sellerMinPrice)
-			sellerCurrentPrice = sellerMinPrice;
+        /*if (currentItem.GetComponent<ClickedOnAntique>() != null)
+        {
+            itemBaseValue = currentItem.GetComponent<ClickedOnAntique>().itemValue;
+        }
+        else
+        {
+            itemBaseValue = 500;
+        }*/
+
+        if (sellerCurrentPrice < sellerMinPrice)
+            sellerCurrentPrice = sellerMinPrice;
 		if (Input.GetButtonDown ("Submit"))
 			counterClick ();
 	}
@@ -202,15 +218,31 @@ public class DealMaster : MonoBehaviour {
 	}
 
 	void sellItem () {
-		Debug.Log ("YOU WIN! You have purchased an item worth $" + itemBaseValue + " for $" + sellerCurrentPrice);
         playerCounterOfferPrevious = sellerCurrentPrice;
-		dealOver = true;
-        dealMade = true;
-        hideValue = false;
+        if (gm.playerMoney > playerCounterOfferPrevious)
+        {
+            Destroy(currentItem);
+            Debug.Log("YOU WIN! You have purchased an item worth $" + itemBaseValue + " for $" + sellerCurrentPrice);
+            gm.playerMoney -= playerCounterOfferPrevious;
+            gm.playerItemValue += itemBaseValue;
+
+            dealOver = true;
+            dealMade = true;
+            hideValue = false;
+
+            AudioSource.PlayClipAtPoint(dealClip, new Vector3(0, 0, -10));
+        }
+        else
+        {
+            Debug.Log("You don't have the money, No Deal!");
+            notEnoughMoney = true;
+            noDeal();
+        }
     }
 
     void noDeal()
     {
+        //Destroy(currentItem);
         Debug.Log("NO DEAL. You turned down an item worth $" + itemBaseValue + " for $" + sellerCurrentPrice);
         //playerCounterOfferPrevious = 0;
         dealOver = true;
@@ -246,6 +278,10 @@ public class DealMaster : MonoBehaviour {
 
     void restart()
     {
+        if (currentItem != null)
+        {
+            currentItem.GetComponent<ClickedOnAntique>().clicked = false;
+        }
         gm.endNegotiation();
         /*
         dealOver = false;

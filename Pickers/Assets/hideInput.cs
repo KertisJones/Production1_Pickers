@@ -19,7 +19,7 @@ public class hideInput : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if((hideOnDealOver && dealMaster.GetComponent<DealMaster>().dealOver) || (hideOnFirstOffer && dealMaster.GetComponent<DealMaster>().playerCounterOfferPrevious == 0) || (hideDuringDeal && !dealMaster.GetComponent<DealMaster>().dealOver))
+		if((hideOnDealOver && dealMaster.GetComponent<DealMaster>().dealOver) || (hideOnFirstOffer && dealMaster.GetComponent<DealMaster>().playerCounterOfferPrevious == 0) || (hideDuringDeal && !dealMaster.GetComponent<DealMaster>().dealOver && dealMaster.GetComponent<DealMaster>().playerCounterOfferPrevious != 0))
         {
             hide();
         }

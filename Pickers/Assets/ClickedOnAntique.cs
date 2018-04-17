@@ -5,10 +5,13 @@ using UnityEngine;
 public class ClickedOnAntique : MonoBehaviour {
     private DealMaster dealMaster;
     private GameManager GM;
+    public bool clicked = false;
+    public int itemValue = 500;
 
     // Use this for initialization
     void Start()
     {
+        itemValue = Mathf.RoundToInt(Random.Range(50f, 10000f));
         //dealMaster = GameObject.FindGameObjectWithTag("DealMaster").GetComponent<DealMaster>();
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
@@ -28,7 +31,9 @@ public class ClickedOnAntique : MonoBehaviour {
 
         if (dealMaster == null)
         {
-            Destroy(this.gameObject);
+            clicked = true;
+            //Destroy(this.gameObject);
+            GM.currentItem = this.gameObject;
             GM.triggerNegotiation = true;
         }
     }
