@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour {
 	{
 		if (!created)
 		{
-			DontDestroyOnLoad(this.gameObject);
+			//DontDestroyOnLoad(this.gameObject);
 			created = true;
 			//Debug.Log("Awake: " + this.gameObject);
 		}
@@ -41,9 +42,11 @@ public class GameManager : MonoBehaviour {
             restartNegotiation();
         }
 
-		//if (Input.GetButtonDown ("Cancel"))
-		//	restartNegotiation ();
-
+        if (Input.GetButtonDown("Cancel"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //playerMoney = 10000;
+        }
         //if (restartButton == null)
         //{
         //    restartButton = GameObject.FindGameObjectWithTag("RESTARTButton");
