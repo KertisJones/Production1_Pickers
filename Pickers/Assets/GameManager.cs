@@ -6,11 +6,14 @@ public class GameManager : MonoBehaviour {
 
 	//This script will be persitent through changing scenes 
 	private static bool created = false;
+
     //private GameObject restartButton;
 	public GameObject dealMasterPrefab;
 	public GameObject dealMaster;
 
 	public int playerMoney = 1000;
+
+    public bool triggerNegotiation = false;
 
 	void Awake()
 	{
@@ -24,14 +27,20 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		dealMaster = Instantiate (dealMasterPrefab);
+		//dealMaster = Instantiate (dealMasterPrefab);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetButtonDown ("Cancel"))
-			restartNegotiation ();
+        if (triggerNegotiation == true)
+        {
+            triggerNegotiation = false;
+            restartNegotiation();
+        }
+
+		//if (Input.GetButtonDown ("Cancel"))
+		//	restartNegotiation ();
 
         //if (restartButton == null)
         //{
@@ -40,7 +49,13 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void restartNegotiation(){
-		Destroy (dealMaster);
-		dealMaster = Instantiate (dealMasterPrefab);
+        endNegotiation();
+        dealMaster = Instantiate (dealMasterPrefab);
 	}
+
+    public void endNegotiation()
+    {
+        if (dealMaster != null)
+            Destroy(dealMaster);
+    }
 }

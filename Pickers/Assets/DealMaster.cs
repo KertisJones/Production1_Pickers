@@ -97,8 +97,16 @@ public class DealMaster : MonoBehaviour {
 				//TODO: Insultingly low offer, GET ANGRY
 				sellerAnger += 1;
                 Debug.Log("Insultingly low offer, GET ANGRY");
-            } 
-			else if ((counterOffer >= (sellerMinPrice - sellerMinPriceThreshold)) && (counterOffer < (sellerCurrentPrice - sellerCurrentPriceThreshold))) {
+            }
+            else if (counterOffer > sellerCurrentPrice)
+            {
+                //TODO: Offered more than asked, GET HAPPY
+                sellerAnger -= 1;
+                sellerCurrentPrice = counterOffer;
+                sellItem();
+                Debug.Log("Offered more than asked, GET HAPPY");
+            }
+            else if ((counterOffer >= (sellerMinPrice - sellerMinPriceThreshold)) && (counterOffer < (sellerCurrentPrice - sellerCurrentPriceThreshold))) {
                 //TODO: Normal offer, reduce asking price.
                 //Find difference between offer and counteroffer
                 int differenceInOffer = 0;
@@ -183,14 +191,7 @@ public class DealMaster : MonoBehaviour {
 				sellerCurrentPrice = counterOffer;
 				sellItem ();
                 Debug.Log("That's what I just said. Deal, but you're kind of a dick.");
-            } 
-			else if (counterOffer > sellerCurrentPrice) {
-				//TODO: Offered more than asked, GET HAPPY
-				sellerAnger -= 1;
-				sellerCurrentPrice = counterOffer;
-				sellItem ();
-                Debug.Log("Offered more than asked, GET HAPPY");
-            } 
+            } 			
 			else {
 				Debug.Log ("You offered something really weird... THIS SHOULDN'T BE HAPPENING!");
 			}
@@ -219,16 +220,15 @@ public class DealMaster : MonoBehaviour {
 
     void finalOffer()
     {
-        if (playerCounterOfferPrevious >= itemBaseValue)
+        if (playerCounterOfferPrevious < sellerMinPrice)
         {
-            sellerCurrentPrice = playerCounterOfferPrevious;
-            sellItem();
-            Debug.Log("FINAL OFFER... Offer greater than value, deal.");
+            noDeal();
+            Debug.Log("FINAL OFFER... Less than min price, no deal");
         }
         else
         {
             sellerAnger += 1;
-            int randint = Random.Range(0, 75) + 10;
+            int randint = Random.Range(0, 70) + 10;
             double distanceFromVal = ((playerCounterOfferPrevious * 1.0) / itemBaseValue) * 100;
 
             if (randint <= distanceFromVal)
@@ -246,6 +246,8 @@ public class DealMaster : MonoBehaviour {
 
     void restart()
     {
+        gm.endNegotiation();
+        /*
         dealOver = false;
         dealMade = false;
         hideValue = true;
@@ -260,6 +262,6 @@ public class DealMaster : MonoBehaviour {
         sellerMinPrice = Mathf.RoundToInt(itemSentimentalValue * Random.Range(0.2f, 0.6f));
 
         sellerMinPriceThreshold = Mathf.RoundToInt(sellerMinPrice * Random.Range(0.075f, 0.2f));
-        sellerCurrentPriceThreshold = Mathf.RoundToInt(sellerMinPrice * Random.Range(0.075f, 0.2f));
+        sellerCurrentPriceThreshold = Mathf.RoundToInt(sellerMinPrice * Random.Range(0.075f, 0.2f));*/
     }
 }
