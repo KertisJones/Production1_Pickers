@@ -1809,14 +1809,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.7033333, y: 0.854}
+    oldSize: {x: 0.422, y: 0.5124}
     newSize: {x: 10.55, y: 12.81}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7033333, y: 0.854}
+  m_Size: {x: 0.422, y: 0.5124}
   m_EdgeRadius: 0
 --- !u!114 &470197482
 MonoBehaviour:
@@ -1880,7 +1880,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 470197480}
   m_LocalRotation: {x: 0, y: 0, z: 0.34677196, w: 0.9379495}
-  m_LocalPosition: {x: -5.806, y: -3.286, z: 0.17}
+  m_LocalPosition: {x: -5.27, y: -1.315, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4460,55 +4460,45 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 224931613751252150, guid: 5922750a44693f049b88e0d3207bb5a8,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 149
-      objectReference: {fileID: 0}
-    - target: {fileID: 224931613751252150, guid: 5922750a44693f049b88e0d3207bb5a8,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 66
-      objectReference: {fileID: 0}
     - target: {fileID: 224533485885013874, guid: 5922750a44693f049b88e0d3207bb5a8,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 131
+      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 224533485885013874, guid: 5922750a44693f049b88e0d3207bb5a8,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 66
-      objectReference: {fileID: 0}
-    - target: {fileID: 224660154648414108, guid: 5922750a44693f049b88e0d3207bb5a8,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 224660154648414108, guid: 5922750a44693f049b88e0d3207bb5a8,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 66
-      objectReference: {fileID: 0}
-    - target: {fileID: 224563052762339342, guid: 5922750a44693f049b88e0d3207bb5a8,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 119
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 224563052762339342, guid: 5922750a44693f049b88e0d3207bb5a8,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 66
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 224047009983326438, guid: 5922750a44693f049b88e0d3207bb5a8,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 209
+      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 224047009983326438, guid: 5922750a44693f049b88e0d3207bb5a8,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 66
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 224931613751252150, guid: 5922750a44693f049b88e0d3207bb5a8,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 96
+      objectReference: {fileID: 0}
+    - target: {fileID: 224931613751252150, guid: 5922750a44693f049b88e0d3207bb5a8,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1149508662639466, guid: 5922750a44693f049b88e0d3207bb5a8, type: 2}
       propertyPath: m_IsActive
@@ -4517,57 +4507,57 @@ Prefab:
     - target: {fileID: 224094557468053152, guid: 5922750a44693f049b88e0d3207bb5a8,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: -6
+      value: -5.8440113
       objectReference: {fileID: 0}
     - target: {fileID: 224036635280417664, guid: 5922750a44693f049b88e0d3207bb5a8,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 69
+      value: 47.910866
       objectReference: {fileID: 0}
     - target: {fileID: 224036635280417664, guid: 5922750a44693f049b88e0d3207bb5a8,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 16
+      value: 16.155989
       objectReference: {fileID: 0}
     - target: {fileID: 224543862332528244, guid: 5922750a44693f049b88e0d3207bb5a8,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 38
+      value: 21.72702
       objectReference: {fileID: 0}
     - target: {fileID: 224543862332528244, guid: 5922750a44693f049b88e0d3207bb5a8,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 16
+      value: 16.155989
       objectReference: {fileID: 0}
     - target: {fileID: 224300380592361336, guid: 5922750a44693f049b88e0d3207bb5a8,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 57
+      value: 32.869083
       objectReference: {fileID: 0}
     - target: {fileID: 224300380592361336, guid: 5922750a44693f049b88e0d3207bb5a8,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 16
+      value: 16.155989
       objectReference: {fileID: 0}
     - target: {fileID: 224513278166698344, guid: 5922750a44693f049b88e0d3207bb5a8,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 147
+      value: 105.84959
       objectReference: {fileID: 0}
     - target: {fileID: 224513278166698344, guid: 5922750a44693f049b88e0d3207bb5a8,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 16
+      value: 16.155989
       objectReference: {fileID: 0}
     - target: {fileID: 224082635260564728, guid: 5922750a44693f049b88e0d3207bb5a8,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 87
+      value: 56.824512
       objectReference: {fileID: 0}
     - target: {fileID: 224082635260564728, guid: 5922750a44693f049b88e0d3207bb5a8,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 16
+      value: 16.155989
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5922750a44693f049b88e0d3207bb5a8, type: 2}
@@ -5980,7 +5970,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: ba8b51154ab2d45498127dadf8aee469, type: 3}
+    m_Font: {fileID: 12800000, guid: 1f53b558a56d0f244b3f42f03510c2a7, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
