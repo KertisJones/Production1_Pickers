@@ -23,8 +23,10 @@ public class DealMaster : MonoBehaviour {
 	private GameManager gm;
     public GameObject counterOfferButton;
     public GameObject dealButton;
+    public GameObject noDealButton;
     public GameObject restartButton;
     public GameObject counterOfferInput;
+    public GameObject finalButton;
 
     // Use this for initialization
     void Start () {
@@ -33,6 +35,8 @@ public class DealMaster : MonoBehaviour {
         counterOfferButton.GetComponent<Button>().onClick.AddListener(delegate { counterClick(); });
         dealButton.GetComponent<Button>().onClick.AddListener(delegate { sellItem(); });
         restartButton.GetComponent<Button>().onClick.AddListener(delegate { restart(); });
+        noDealButton.GetComponent<Button>().onClick.AddListener(delegate { noDeal(); });
+        finalButton.GetComponent<Button>().onClick.AddListener(delegate { finalOffer(); });
 
         itemBaseValue = Mathf.RoundToInt(Random.Range(50f, 10000f));
 
@@ -202,6 +206,42 @@ public class DealMaster : MonoBehaviour {
 		dealOver = true;
         dealMade = true;
         hideValue = false;
+    }
+
+    void noDeal()
+    {
+        Debug.Log("NO DEAL. You turned down an item worth $" + itemBaseValue + " for $" + sellerCurrentPrice);
+        //playerCounterOfferPrevious = 0;
+        dealOver = true;
+        dealMade = false;
+        hideValue = false;
+    }
+
+    void finalOffer()
+    {
+        if (playerCounterOfferPrevious >= itemBaseValue)
+        {
+            sellerCurrentPrice = playerCounterOfferPrevious;
+            sellItem();
+            Debug.Log("FINAL OFFER... Offer greater than value, deal.");
+        }
+        else
+        {
+            sellerAnger += 1;
+            int randint = Random.Range(0, 75) + 10;
+            double distanceFromVal = ((playerCounterOfferPrevious * 1.0) / itemBaseValue) * 100;
+
+            if (randint <= distanceFromVal)
+            {
+                sellerCurrentPrice = playerCounterOfferPrevious;
+                sellItem();
+            }
+            else
+            {
+                noDeal();
+            }
+            Debug.Log("FINAL OFFER... Random Num: " + randint + ", Percentage progress to item value: " + distanceFromVal + "%");
+        }
     }
 
     void restart()

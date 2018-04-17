@@ -32,6 +32,10 @@ public class DisplayStat : MonoBehaviour {
             {
                 txt.text = "Deal!";
             }
+            else if (dealMaster.dealOver && !dealMaster.dealMade)
+            {
+                txt.text = "";
+            }
             else {
 				txt.text = "Asking Price: $" + dealMaster.sellerCurrentPrice;
             }
@@ -76,6 +80,11 @@ public class DisplayStat : MonoBehaviour {
 			if (dealMaster.dealMade)
             {
 				txt.text = "Ammount Spent: $" + dealMaster.playerCounterOfferPrevious;
+                this.GetComponent<RectTransform>().localPosition = new Vector2(0, 0);
+            }
+            else if (dealMaster.dealOver && !dealMaster.dealMade)
+            {
+                txt.text = "No Deal.";
                 this.GetComponent<RectTransform>().localPosition = new Vector2(0, 0);
             }
         }/*
