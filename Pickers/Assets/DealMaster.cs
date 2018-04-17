@@ -219,7 +219,7 @@ public class DealMaster : MonoBehaviour {
 
 	void sellItem () {
         playerCounterOfferPrevious = sellerCurrentPrice;
-        if (gm.playerMoney > playerCounterOfferPrevious)
+        if (gm.playerMoney >= playerCounterOfferPrevious)
         {
             Destroy(currentItem);
             Debug.Log("YOU WIN! You have purchased an item worth $" + itemBaseValue + " for $" + sellerCurrentPrice);
