@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4ad1dd5a723c140b541151a5291b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Splash
+  sceneToLoad: Sanctuary
   delayTime: 42
 --- !u!82 &111803668
 AudioSource:
