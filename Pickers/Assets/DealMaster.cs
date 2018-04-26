@@ -5,20 +5,20 @@ using UnityEngine.UI;
 
 public class DealMaster : MonoBehaviour {
 
-	public int itemBaseValue = 50;
-    private int itemSentimentalValue = 0;
+	//public int itemBaseValue = 50;
+    //private int itemSentimentalValue = 0;
     public bool dealOver = false;
     public bool dealMade = false;
     public bool notEnoughMoney = false;
-    public bool hideValue = true;
+    //public bool hideValue = true;
     
 
-    public int playerCounterOfferPrevious = 0;
+    //public int playerCounterOfferPrevious = 0;
 
-    public int sellerCurrentPrice = 100;
-    public int sellerMinPrice = 0;
-    public int sellerMinPriceThreshold = 5;
-    public int sellerCurrentPriceThreshold = 5;
+    //public int sellerCurrentPrice = 100;
+    //public int sellerMinPrice = 0;
+    //public int sellerMinPriceThreshold = 5;
+    //public int sellerCurrentPriceThreshold = 5;
 
 	public int sellerAnger = 0;
 
@@ -33,12 +33,15 @@ public class DealMaster : MonoBehaviour {
     public AudioClip dealClip;
 
     public GameObject currentItem;
+    public Antique antique;
+
 
     // Use this for initialization
     void Start () {
 		gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager> ();
 
         currentItem = gm.currentItem;
+        antique = currentItem.GetComponent<Antique>();
 
         counterOfferButton.GetComponent<Button>().onClick.AddListener(delegate { counterClick(); });
         dealButton.GetComponent<Button>().onClick.AddListener(delegate { sellItem(); });
@@ -47,15 +50,15 @@ public class DealMaster : MonoBehaviour {
         finalButton.GetComponent<Button>().onClick.AddListener(delegate { finalOffer(); });
         expertButton.GetComponent<Button>().onClick.AddListener(delegate { callExpert(); });
 
-        itemBaseValue = currentItem.GetComponent<ClickedOnAntique>().itemValue;
+        //itemBaseValue = antique.itemValue;
 
-        itemSentimentalValue = Mathf.RoundToInt(itemBaseValue + Random.Range(0.8f, 1.2f) * RandomSign());
+        //itemSentimentalValue = Mathf.RoundToInt(itemBaseValue + Random.Range(0.8f, 1.2f) * RandomSign());
 
-        sellerCurrentPrice = roundTo5(Mathf.RoundToInt(itemSentimentalValue * Random.Range(1.2f, 1.6f)));
-        sellerMinPrice = Mathf.RoundToInt(itemSentimentalValue * Random.Range(0.2f, 0.6f));
+        //sellerCurrentPrice = roundTo5(Mathf.RoundToInt(itemSentimentalValue * Random.Range(1.2f, 1.6f)));
+        //sellerMinPrice = Mathf.RoundToInt(itemSentimentalValue * Random.Range(0.2f, 0.6f));
 
-        sellerMinPriceThreshold = Mathf.RoundToInt(sellerMinPrice * Random.Range(0.075f, 0.2f));
-        sellerCurrentPriceThreshold = Mathf.RoundToInt(sellerCurrentPrice * Random.Range(0.075f, 0.2f));
+        //sellerMinPriceThreshold = Mathf.RoundToInt(sellerMinPrice * Random.Range(0.075f, 0.2f));
+        //sellerCurrentPriceThreshold = Mathf.RoundToInt(sellerCurrentPrice * Random.Range(0.075f, 0.2f));
     }
 
     int RandomSign()
@@ -84,8 +87,8 @@ public class DealMaster : MonoBehaviour {
             itemBaseValue = 500;
         }*/
 
-        if (sellerCurrentPrice < sellerMinPrice)
-            sellerCurrentPrice = sellerMinPrice;
+        if (antique.sellerCurrentPrice < antique.sellerMinPrice)
+            antique.sellerCurrentPrice = antique.sellerMinPrice;
 		if (Input.GetButtonDown ("Submit"))
 			counterClick ();
 	}
@@ -101,37 +104,37 @@ public class DealMaster : MonoBehaviour {
 
 	void makeOffer(int counterOffer) {
 		if (!dealOver) {
-			if (counterOffer < playerCounterOfferPrevious) {
+			if (counterOffer < antique.playerCounterOfferPrevious) {
 				//TODO: Offered less than before, GET ANGRY
 				sellerAnger += 1;
                 Debug.Log("Offered less than before, GET ANGRY");
 			} 
-			else if (counterOffer == playerCounterOfferPrevious) {
+			else if (counterOffer == antique.playerCounterOfferPrevious) {
 				//TODO: That's the same thing. Do nothing... maybe even get angry.
 				sellerAnger += 1;
                 Debug.Log("That's the same thing. Do nothing... maybe even get angry.");
             } 
-			else if (counterOffer < (sellerMinPrice - sellerMinPriceThreshold)) {
+			else if (counterOffer < (antique.sellerMinPrice - antique.sellerMinPriceThreshold)) {
 				//TODO: Insultingly low offer, GET ANGRY
 				sellerAnger += 1;
                 Debug.Log("Insultingly low offer, GET ANGRY");
             }
-            else if (counterOffer > sellerCurrentPrice)
+            else if (counterOffer > antique.sellerCurrentPrice)
             {
                 //TODO: Offered more than asked, GET HAPPY
                 sellerAnger -= 1;
-                sellerCurrentPrice = counterOffer;
+                antique.sellerCurrentPrice = counterOffer;
                 sellItem();
                 Debug.Log("Offered more than asked, GET HAPPY");
             }
-            else if ((counterOffer >= (sellerMinPrice - sellerMinPriceThreshold)) && (counterOffer < (sellerCurrentPrice - sellerCurrentPriceThreshold))) {
+            else if ((counterOffer >= (antique.sellerMinPrice - antique.sellerMinPriceThreshold)) && (counterOffer < (antique.sellerCurrentPrice - antique.sellerCurrentPriceThreshold))) {
                 //TODO: Normal offer, reduce asking price.
                 //Find difference between offer and counteroffer
                 int differenceInOffer = 0;
                 
-                if (playerCounterOfferPrevious == 0) //first offer
+                if (antique.playerCounterOfferPrevious == 0) //first offer
                 {
-                    if (counterOffer <= sellerMinPrice)
+                    if (counterOffer <= antique.sellerMinPrice)
                     {
                         differenceInOffer = 0;
                     }
@@ -141,82 +144,82 @@ public class DealMaster : MonoBehaviour {
                     //}
                     else
                     {
-                        differenceInOffer = (counterOffer - sellerMinPrice) / 2;
+                        differenceInOffer = (counterOffer - antique.sellerMinPrice) / 2;
                     }
                 }
                 else //not first offer
                 {
-                    differenceInOffer = counterOffer - playerCounterOfferPrevious;
+                    differenceInOffer = counterOffer - antique.playerCounterOfferPrevious;
                 }
 
                 //reduce asking price.
                 //int differenceBetweenPrice = sellerCurrentPrice - counterOffer;
                 //if (differenceBetweenPrice >= differenceInOffer) //came halfway (or more)
 
-                if (counterOffer > sellerMinPrice && playerCounterOfferPrevious >= (sellerMinPrice - sellerMinPriceThreshold))
+                if (counterOffer > antique.sellerMinPrice && antique.playerCounterOfferPrevious >= (antique.sellerMinPrice - antique.sellerMinPriceThreshold))
                 {
-                    if (sellerCurrentPrice - differenceInOffer > counterOffer + sellerCurrentPriceThreshold)
+                    if (antique.sellerCurrentPrice - differenceInOffer > counterOffer + antique.sellerCurrentPriceThreshold)
                     {
-                        sellerCurrentPrice = sellerCurrentPrice - differenceInOffer;
+                        antique.sellerCurrentPrice = antique.sellerCurrentPrice - differenceInOffer;
                     }
                     else
                     {
-                        sellerCurrentPrice = counterOffer;
+                        antique.sellerCurrentPrice = counterOffer;
                         sellItem();
                         Debug.Log("That's a fair price. I'll take it.");
                     }
                 }
-                else if (counterOffer > sellerMinPrice && playerCounterOfferPrevious < (sellerMinPrice - sellerMinPriceThreshold) * 2)
+                else if (counterOffer > antique.sellerMinPrice && antique.playerCounterOfferPrevious < (antique.sellerMinPrice - antique.sellerMinPriceThreshold) * 2)
                 {
                     //sellerCurrentPrice = sellerCurrentPrice - (differenceInOffer / 100);
-                    if (sellerCurrentPrice - (differenceInOffer / 100) > counterOffer + sellerCurrentPriceThreshold)
+                    if (antique.sellerCurrentPrice - (differenceInOffer / 100) > counterOffer + antique.sellerCurrentPriceThreshold)
                     {
-                        sellerCurrentPrice = sellerCurrentPrice - ((counterOffer - sellerMinPrice) / 2);
+                        antique.sellerCurrentPrice = antique.sellerCurrentPrice - ((counterOffer - antique.sellerMinPrice) / 2);
                         Debug.Log("Offer under over min price, but last offer was under threshold. Reduce price via min price,");
                     }
                     else
                     {
-                        sellerCurrentPrice = counterOffer;
+                        antique.sellerCurrentPrice = counterOffer;
                         sellItem();
                         Debug.Log("That's a fair price. I'll take it.");
                     }
                 }
                 else
                 {
-                    if (sellerCurrentPrice - (differenceInOffer / 10) > counterOffer + sellerCurrentPriceThreshold)
+                    if (antique.sellerCurrentPrice - (differenceInOffer / 10) > counterOffer + antique.sellerCurrentPriceThreshold)
                     {
-                        sellerCurrentPrice = sellerCurrentPrice - (differenceInOffer / 10);
+                        antique.sellerCurrentPrice = antique.sellerCurrentPrice - (differenceInOffer / 10);
                         Debug.Log("Offer under Min price, reduce price less");
                     }
                     else
                     {
-                        sellerCurrentPrice = counterOffer;
+                        antique.sellerCurrentPrice = counterOffer;
                         sellItem();
                         Debug.Log("That's a fair price. I'll take it.");
                     }
                 }
 
 
-                if (counterOffer > sellerCurrentPrice)
+                if (counterOffer > antique.sellerCurrentPrice)
                 {
                     //Bugcatcher!
                     //TODO: Offered more than asked, GET HAPPY 
                     sellerAnger -= 1;
-                    sellerCurrentPrice = counterOffer;
+                    antique.sellerCurrentPrice = counterOffer;
                     sellItem();
                     Debug.Log("Offered more than asked, GET HAPPY");
                 }
                 Debug.Log("Normal offer, reduce asking price.");
             } 
-			else if ((counterOffer >= (sellerCurrentPrice - sellerCurrentPriceThreshold)) && (counterOffer < sellerCurrentPrice)) {
-				//TODO: Very close to current offer, either accept or enter "Final Offer"
-				sellerCurrentPrice = counterOffer;
+			else if ((counterOffer >= (antique.sellerCurrentPrice - antique.sellerCurrentPriceThreshold)) && (counterOffer < antique.sellerCurrentPrice)) {
+                //TODO: Very close to current offer, either accept or enter "Final Offer"
+                antique.sellerCurrentPrice = counterOffer;
 				sellItem ();
                 Debug.Log("Very close to current offer, either accept or enter Final Offer");
             } 
-			else if (counterOffer == sellerCurrentPrice) {
-				//TODO: That's what I just said. Deal, but you're kind of a dick.
-				sellerCurrentPrice = counterOffer;
+			else if (counterOffer == antique.sellerCurrentPrice) {
+                //TODO: That's what I just said. Deal, but you're kind of a dick.
+                antique.sellerCurrentPrice = counterOffer;
 				sellItem ();
                 Debug.Log("That's what I just said. Deal, but you're kind of a dick.");
             } 			
@@ -224,24 +227,24 @@ public class DealMaster : MonoBehaviour {
 				Debug.Log ("You offered something really weird... THIS SHOULDN'T BE HAPPENING!");
 			}
 
-			if (playerCounterOfferPrevious < counterOffer)
-				playerCounterOfferPrevious = counterOffer;
+			if (antique.playerCounterOfferPrevious < counterOffer)
+                antique.playerCounterOfferPrevious = counterOffer;
 		}
 	}
 
 	void sellItem () {
-        playerCounterOfferPrevious = sellerCurrentPrice;
-        if (gm.playerMoney >= playerCounterOfferPrevious)
+        antique.playerCounterOfferPrevious = antique.sellerCurrentPrice;
+        if (gm.playerMoney >= antique.playerCounterOfferPrevious)
         {
             Destroy(currentItem);
-            Debug.Log("YOU WIN! You have purchased an item worth $" + itemBaseValue + " for $" + sellerCurrentPrice);
-            gm.playerMoney -= playerCounterOfferPrevious;
-            gm.playerMoney += itemBaseValue;
+            Debug.Log("YOU WIN! You have purchased an item worth $" + antique.itemBaseValue + " for $" + antique.sellerCurrentPrice);
+            gm.playerMoney -= antique.playerCounterOfferPrevious;
+            gm.playerMoney += antique.itemBaseValue;
             //gm.playerItemValue += itemBaseValue;
 
             dealOver = true;
             dealMade = true;
-            hideValue = false;
+            antique.hideValue = false;
 
             AudioSource.PlayClipAtPoint(dealClip, new Vector3(0, 0, -10));
         }
@@ -256,20 +259,20 @@ public class DealMaster : MonoBehaviour {
     void noDeal()
     {
         //Destroy(currentItem);
-        Debug.Log("NO DEAL. You turned down an item worth $" + itemBaseValue + " for $" + sellerCurrentPrice);
+        Debug.Log("NO DEAL. You turned down an item worth $" + antique.itemBaseValue + " for $" + antique.sellerCurrentPrice);
         //playerCounterOfferPrevious = 0;
         dealOver = true;
         dealMade = false;
-        hideValue = false;
+        //antique.hideValue = false;
     }
 
     void callExpert()
     {
         if (gm.playerMoney >= 1000)
         {
-            Debug.Log("Calling an expert... the current item is worth $" + itemBaseValue);
+            Debug.Log("Calling an expert... the current item is worth $" + antique.itemBaseValue);
             gm.playerMoney -= 1000;
-            hideValue = false;
+            antique.hideValue = false;
 
             AudioSource.PlayClipAtPoint(dealClip, new Vector3(0, 0, -10));
         }
@@ -281,7 +284,8 @@ public class DealMaster : MonoBehaviour {
 
     void finalOffer()
     {
-        if (playerCounterOfferPrevious < sellerMinPrice)
+        antique.gaveFinal = true;
+        if (antique.playerCounterOfferPrevious < antique.sellerMinPrice)
         {
             noDeal();
             Debug.Log("FINAL OFFER... Less than min price, no deal");
@@ -290,11 +294,11 @@ public class DealMaster : MonoBehaviour {
         {
             sellerAnger += 1;
             int randint = Random.Range(0, 70) + 10;
-            double distanceFromVal = ((playerCounterOfferPrevious * 1.0) / itemBaseValue) * 100;
+            double distanceFromVal = ((antique.playerCounterOfferPrevious * 1.0) / antique.itemBaseValue) * 100;
 
             if (randint <= distanceFromVal)
             {
-                sellerCurrentPrice = playerCounterOfferPrevious;
+                antique.sellerCurrentPrice = antique.playerCounterOfferPrevious;
                 sellItem();
             }
             else
@@ -309,7 +313,7 @@ public class DealMaster : MonoBehaviour {
     {
         if (currentItem != null)
         {
-            currentItem.GetComponent<ClickedOnAntique>().clicked = false;
+            currentItem.GetComponent<Antique>().clicked = false;
         }
         gm.endNegotiation();
         /*

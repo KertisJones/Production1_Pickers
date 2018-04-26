@@ -26,7 +26,7 @@ public class DisplayStat : MonoBehaviour {
         {
             if (statType == StatType.currentPrice)
             {
-                if (dealMaster.playerCounterOfferPrevious == 0)
+                if (dealMaster.antique.playerCounterOfferPrevious == 0)
                 {
                     txt.text = "";
                 }
@@ -40,34 +40,38 @@ public class DisplayStat : MonoBehaviour {
                 }
                 else
                 {
-                    txt.text = "Asking Price: $" + dealMaster.sellerCurrentPrice;
+                    txt.text = "Asking Price: $" + dealMaster.antique.sellerCurrentPrice;
                 }
             }
             if (statType == StatType.itemBaseValue)
             {
-                if (dealMaster.hideValue)
+                if (dealMaster.dealOver && !dealMaster.dealMade)
                 {
-                    if (dealMaster.itemBaseValue < 90)
+                    txt.text = "";
+                }
+                else if (dealMaster.antique.hideValue)
+                {
+                    if (dealMaster.antique.itemBaseValue < 90)
                     {
                         txt.text = "Item Value: Hmm... That's probably worth less than $100";
                     }
-                    if (dealMaster.itemBaseValue < 200)
+                    if (dealMaster.antique.itemBaseValue < 200)
                     {
                         txt.text = "Item Value: Hmm... That's probably worth around $100";
                     }
-                    else if (dealMaster.itemBaseValue < 750)
+                    else if (dealMaster.antique.itemBaseValue < 750)
                     {
                         txt.text = "Item Value: Hmm... That's probably worth a few hundred";
                     }
-                    else if (dealMaster.itemBaseValue < 1250)
+                    else if (dealMaster.antique.itemBaseValue < 1250)
                     {
                         txt.text = "Item Value: Hmm... That's probably worth around a thousand";
                     }
-                    else if (dealMaster.itemBaseValue < 4750)
+                    else if (dealMaster.antique.itemBaseValue < 4750)
                     {
                         txt.text = "Item Value: Hmm... That's probably worth about a couple thousand";
                     }
-                    else if (dealMaster.itemBaseValue < 8500)
+                    else if (dealMaster.antique.itemBaseValue < 8500)
                     {
                         txt.text = "Item Value: Hmm... That's probably worth over $5000";
                     }
@@ -78,19 +82,22 @@ public class DisplayStat : MonoBehaviour {
                 }
                 else
                 {
-                    txt.text = "Item Value: $" + dealMaster.itemBaseValue;
+                    txt.text = "Item Value: $" + dealMaster.antique.itemBaseValue;
                 }
             }
             if (statType == StatType.previousOffer)
             {
-                if (dealMaster.playerCounterOfferPrevious != 0)
-                    txt.text = "Previous Offer: $" + dealMaster.playerCounterOfferPrevious;
+                if (dealMaster.antique.playerCounterOfferPrevious != 0)
+                    txt.text = "Previous Offer: $" + dealMaster.antique.playerCounterOfferPrevious;
                 else
                     txt.text = "";
-
+                if (dealMaster.antique.gaveFinal && !dealMaster.dealOver)
+                {
+                    this.GetComponent<RectTransform>().localPosition = new Vector2(0, -33);
+                }
                 if (dealMaster.dealMade)
                 {
-                    txt.text = "Ammount Spent: $" + dealMaster.playerCounterOfferPrevious;
+                    txt.text = "Ammount Spent: $" + dealMaster.antique.playerCounterOfferPrevious;
                     this.GetComponent<RectTransform>().localPosition = new Vector2(0, 0);
                 }
                 else if (dealMaster.dealOver && !dealMaster.dealMade)

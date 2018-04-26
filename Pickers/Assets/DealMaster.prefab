@@ -1185,6 +1185,7 @@ MonoBehaviour:
   hideOnFirstOffer: 0
   hideDuringDeal: 0
   hideAfterExpert: 1
+  hideAfterFinalOffer: 0
   dealMaster: {fileID: 1149508662639466}
 --- !u!114 &114126254934201234
 MonoBehaviour:
@@ -1504,6 +1505,7 @@ MonoBehaviour:
   hideOnFirstOffer: 0
   hideDuringDeal: 0
   hideAfterExpert: 0
+  hideAfterFinalOffer: 0
   dealMaster: {fileID: 1149508662639466}
 --- !u!114 &114241467358258118
 MonoBehaviour:
@@ -2216,16 +2218,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e4e71f35004c3248b04d435daba227f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemBaseValue: 50
   dealOver: 0
   dealMade: 0
   notEnoughMoney: 0
-  hideValue: 1
-  playerCounterOfferPrevious: 0
-  sellerCurrentPrice: 100
-  sellerMinPrice: 0
-  sellerMinPriceThreshold: 5
-  sellerCurrentPriceThreshold: 5
   sellerAnger: 0
   counterOfferButton: {fileID: 1434612424494744}
   dealButton: {fileID: 1930131775912576}
@@ -2236,6 +2231,7 @@ MonoBehaviour:
   expertButton: {fileID: 1867277899816322}
   dealClip: {fileID: 8300000, guid: 8775773211374dc44ae704a31dcccee0, type: 3}
   currentItem: {fileID: 0}
+  antique: {fileID: 0}
 --- !u!114 &114481301112031472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2764,6 +2760,7 @@ MonoBehaviour:
   hideOnFirstOffer: 0
   hideDuringDeal: 1
   hideAfterExpert: 0
+  hideAfterFinalOffer: 0
   dealMaster: {fileID: 1149508662639466}
 --- !u!114 &114728781309395570
 MonoBehaviour:
@@ -3164,6 +3161,7 @@ MonoBehaviour:
   hideOnFirstOffer: 1
   hideDuringDeal: 0
   hideAfterExpert: 0
+  hideAfterFinalOffer: 0
   dealMaster: {fileID: 1149508662639466}
 --- !u!114 &114900249880133256
 MonoBehaviour:
@@ -3315,6 +3313,7 @@ MonoBehaviour:
   hideOnFirstOffer: 1
   hideDuringDeal: 0
   hideAfterExpert: 0
+  hideAfterFinalOffer: 1
   dealMaster: {fileID: 1149508662639466}
 --- !u!114 &114927912741289104
 MonoBehaviour:
@@ -3523,6 +3522,7 @@ MonoBehaviour:
   hideOnFirstOffer: 0
   hideDuringDeal: 0
   hideAfterExpert: 0
+  hideAfterFinalOffer: 0
   dealMaster: {fileID: 1149508662639466}
 --- !u!114 &114965230153767120
 MonoBehaviour:
@@ -3539,6 +3539,7 @@ MonoBehaviour:
   hideOnFirstOffer: 1
   hideDuringDeal: 0
   hideAfterExpert: 0
+  hideAfterFinalOffer: 0
   dealMaster: {fileID: 1149508662639466}
 --- !u!114 &114969209261101054
 MonoBehaviour:
@@ -4050,7 +4051,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 175, y: -75}
-  m_SizeDelta: {x: 163.96078, y: 66.666664}
+  m_SizeDelta: {x: 96, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224071158882920594
 RectTransform:
@@ -4216,7 +4217,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -125, y: -75}
-  m_SizeDelta: {x: 96, y: 66.666664}
+  m_SizeDelta: {x: 96, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224256704598026842
 RectTransform:
@@ -4290,8 +4291,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -203.27, y: -0.0000076294}
-  m_SizeDelta: {x: 139.45099, y: 66.666664}
+  m_AnchoredPosition: {x: -203.27, y: -33}
+  m_SizeDelta: {x: 96, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224283558168380702
 RectTransform:
@@ -4531,7 +4532,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 175, y: -35}
+  m_AnchoredPosition: {x: 175, y: -33}
   m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224533485885013874
@@ -4552,7 +4553,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -75}
-  m_SizeDelta: {x: 109.05882, y: 66.666664}
+  m_SizeDelta: {x: 96, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224563052762339342
 RectTransform:
@@ -4572,7 +4573,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -225, y: -75}
-  m_SizeDelta: {x: 96, y: 66.666664}
+  m_SizeDelta: {x: 96, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224589829470874280
 RectTransform:
@@ -4944,7 +4945,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -120}
-  m_SizeDelta: {x: 116.90196, y: 66.666664}
+  m_SizeDelta: {x: 96, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224972555519504228
 RectTransform:

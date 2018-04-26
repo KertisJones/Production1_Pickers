@@ -147,56 +147,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 224931613751252150, guid: 5922750a44693f049b88e0d3207bb5a8,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 96
-      objectReference: {fileID: 0}
-    - target: {fileID: 224931613751252150, guid: 5922750a44693f049b88e0d3207bb5a8,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 224275742833401506, guid: 5922750a44693f049b88e0d3207bb5a8,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 96
-      objectReference: {fileID: 0}
-    - target: {fileID: 224275742833401506, guid: 5922750a44693f049b88e0d3207bb5a8,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 224213924145040442, guid: 5922750a44693f049b88e0d3207bb5a8,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 224563052762339342, guid: 5922750a44693f049b88e0d3207bb5a8,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 224047009983326438, guid: 5922750a44693f049b88e0d3207bb5a8,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 96
-      objectReference: {fileID: 0}
-    - target: {fileID: 224047009983326438, guid: 5922750a44693f049b88e0d3207bb5a8,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 224533485885013874, guid: 5922750a44693f049b88e0d3207bb5a8,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 96
-      objectReference: {fileID: 0}
-    - target: {fileID: 224533485885013874, guid: 5922750a44693f049b88e0d3207bb5a8,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 1149508662639466, guid: 5922750a44693f049b88e0d3207bb5a8, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -299,7 +249,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!61 &10277935
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -580,7 +540,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &107683793
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -788,7 +758,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &204455585
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -899,7 +879,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &209655068
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1010,7 +1000,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!61 &259982908
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1121,7 +1121,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &279660832
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1303,7 +1313,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &301200563
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1414,7 +1434,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &312985545
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1525,7 +1555,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!61 &322342841
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1730,7 +1770,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!61 &406669298
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1841,7 +1891,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &444184656
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1952,7 +2012,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &454165217
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2088,7 +2158,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &470197483
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2174,7 +2254,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!61 &565711781
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2285,7 +2375,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &619363188
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2401,7 +2501,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!61 &657362984
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2512,7 +2622,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &694149555
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2623,7 +2743,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &698617486
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2734,7 +2864,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &708182311
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2920,7 +3060,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &773766964
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3031,7 +3181,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!61 &840207663
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3143,7 +3303,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &855754059
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3254,7 +3424,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &878897545
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3365,7 +3545,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &880824415
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3511,7 +3701,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &941620973
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3817,7 +4017,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &986425512
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3928,7 +4138,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &1028030649
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4039,7 +4259,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &1029306417
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4150,7 +4380,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!61 &1094856855
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4355,7 +4595,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &1124312366
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4466,7 +4716,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!61 &1158365616
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4577,7 +4837,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &1177540635
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4689,7 +4959,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!61 &1181399661
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4800,7 +5080,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!61 &1189131044
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4911,7 +5201,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &1301684407
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5022,7 +5322,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &1347005746
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5180,7 +5490,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!61 &1398854089
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5291,7 +5611,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!61 &1405668591
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5402,7 +5732,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &1478488301
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5513,7 +5853,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &1661818956
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5624,7 +5974,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &1721147454
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5775,7 +6135,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &1789468069
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5886,7 +6256,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &1830376141
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5997,7 +6377,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!61 &1840190027
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6202,7 +6592,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!61 &1907251611
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6578,7 +6978,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &2103080935
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6848,7 +7258,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clicked: 0
-  itemValue: 500
+  gaveFinal: 0
+  itemBaseValue: 500
+  dealOver: 0
+  dealMade: 0
+  notEnoughMoney: 0
+  hideValue: 1
+  playerCounterOfferPrevious: 0
+  sellerCurrentPrice: 100
+  sellerMinPrice: 0
+  sellerMinPriceThreshold: 5
+  sellerCurrentPriceThreshold: 5
 --- !u!212 &2123701308
 SpriteRenderer:
   m_ObjectHideFlags: 0
