@@ -47,21 +47,29 @@ public class DisplayStat : MonoBehaviour {
             {
                 if (dealMaster.hideValue)
                 {
-                    if (dealMaster.itemBaseValue < 140)
+                    if (dealMaster.itemBaseValue < 90)
                     {
                         txt.text = "Item Value: Hmm... That's probably worth less than $100";
+                    }
+                    if (dealMaster.itemBaseValue < 200)
+                    {
+                        txt.text = "Item Value: Hmm... That's probably worth around $100";
                     }
                     else if (dealMaster.itemBaseValue < 750)
                     {
                         txt.text = "Item Value: Hmm... That's probably worth a few hundred";
                     }
-                    else if (dealMaster.itemBaseValue < 1500)
+                    else if (dealMaster.itemBaseValue < 1250)
                     {
-                        txt.text = "Item Value: Hmm... That's probably around a thousand";
+                        txt.text = "Item Value: Hmm... That's probably worth around a thousand";
                     }
-                    else if (dealMaster.itemBaseValue < 7500)
+                    else if (dealMaster.itemBaseValue < 4750)
                     {
-                        txt.text = "Item Value: Hmm... That's probably around a few thousand";
+                        txt.text = "Item Value: Hmm... That's probably worth about a couple thousand";
+                    }
+                    else if (dealMaster.itemBaseValue < 8500)
+                    {
+                        txt.text = "Item Value: Hmm... That's probably worth over $5000";
                     }
                     else
                     {

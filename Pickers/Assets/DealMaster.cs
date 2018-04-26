@@ -29,6 +29,7 @@ public class DealMaster : MonoBehaviour {
     public GameObject restartButton;
     public GameObject counterOfferInput;
     public GameObject finalButton;
+    public GameObject expertButton;
     public AudioClip dealClip;
 
     public GameObject currentItem;
@@ -44,6 +45,7 @@ public class DealMaster : MonoBehaviour {
         restartButton.GetComponent<Button>().onClick.AddListener(delegate { restart(); });
         noDealButton.GetComponent<Button>().onClick.AddListener(delegate { noDeal(); });
         finalButton.GetComponent<Button>().onClick.AddListener(delegate { finalOffer(); });
+        expertButton.GetComponent<Button>().onClick.AddListener(delegate { callExpert(); });
 
         itemBaseValue = currentItem.GetComponent<ClickedOnAntique>().itemValue;
 
@@ -194,6 +196,16 @@ public class DealMaster : MonoBehaviour {
                     }
                 }
 
+
+                if (counterOffer > sellerCurrentPrice)
+                {
+                    //Bugcatcher!
+                    //TODO: Offered more than asked, GET HAPPY 
+                    sellerAnger -= 1;
+                    sellerCurrentPrice = counterOffer;
+                    sellItem();
+                    Debug.Log("Offered more than asked, GET HAPPY");
+                }
                 Debug.Log("Normal offer, reduce asking price.");
             } 
 			else if ((counterOffer >= (sellerCurrentPrice - sellerCurrentPriceThreshold)) && (counterOffer < sellerCurrentPrice)) {
@@ -224,7 +236,8 @@ public class DealMaster : MonoBehaviour {
             Destroy(currentItem);
             Debug.Log("YOU WIN! You have purchased an item worth $" + itemBaseValue + " for $" + sellerCurrentPrice);
             gm.playerMoney -= playerCounterOfferPrevious;
-            gm.playerItemValue += itemBaseValue;
+            gm.playerMoney += itemBaseValue;
+            //gm.playerItemValue += itemBaseValue;
 
             dealOver = true;
             dealMade = true;
@@ -248,6 +261,22 @@ public class DealMaster : MonoBehaviour {
         dealOver = true;
         dealMade = false;
         hideValue = false;
+    }
+
+    void callExpert()
+    {
+        if (gm.playerMoney >= 1000)
+        {
+            Debug.Log("Calling an expert... the current item is worth $" + itemBaseValue);
+            gm.playerMoney -= 1000;
+            hideValue = false;
+
+            AudioSource.PlayClipAtPoint(dealClip, new Vector3(0, 0, -10));
+        }
+        else
+        {
+            Debug.Log("You don't have the money for an expert!");
+        }
     }
 
     void finalOffer()

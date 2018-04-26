@@ -7,6 +7,7 @@ public class hideInput : MonoBehaviour {
     public bool hideOnDealOver = false;
     public bool hideOnFirstOffer = false;
     public bool hideDuringDeal = false;
+    public bool hideAfterExpert = false;
 
     private Vector2 origPos = new Vector2();
 
@@ -19,7 +20,10 @@ public class hideInput : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if((hideOnDealOver && dealMaster.GetComponent<DealMaster>().dealOver) || (hideOnFirstOffer && dealMaster.GetComponent<DealMaster>().playerCounterOfferPrevious == 0) || (hideDuringDeal && !dealMaster.GetComponent<DealMaster>().dealOver && dealMaster.GetComponent<DealMaster>().playerCounterOfferPrevious != 0))
+		if((hideOnDealOver && dealMaster.GetComponent<DealMaster>().dealOver) 
+            || (hideOnFirstOffer && dealMaster.GetComponent<DealMaster>().playerCounterOfferPrevious == 0) 
+            || (hideDuringDeal && !dealMaster.GetComponent<DealMaster>().dealOver && dealMaster.GetComponent<DealMaster>().playerCounterOfferPrevious != 0) 
+            || (hideAfterExpert && !dealMaster.GetComponent<DealMaster>().hideValue))
         {
             hide();
         }
