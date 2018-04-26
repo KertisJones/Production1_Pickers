@@ -25,11 +25,11 @@ public class ClickedOnAntique : MonoBehaviour {
             GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
-        void OnMouseDown()
+    void OnMouseDown()
     {
         // this object was clicked - do something
 
-        if (dealMaster == null)
+        if (dealMaster == null && this.transform.childCount == 0)
         {
             clicked = true;
             //Destroy(this.gameObject);
