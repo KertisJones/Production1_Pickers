@@ -40,7 +40,7 @@ public class DisplayStat : MonoBehaviour {
                 }
                 else
                 {
-                    txt.text = "Asking Price: $" + dealMaster.antique.sellerCurrentPrice;
+                    txt.text = "Asking Price: $" + string.Format("{0:n0}", dealMaster.antique.sellerCurrentPrice);
                 }
             }
             if (statType == StatType.itemBaseValue)
@@ -69,7 +69,7 @@ public class DisplayStat : MonoBehaviour {
                     }
                     else if (dealMaster.antique.itemBaseValue < 4750)
                     {
-                        txt.text = "Item Value: Hmm... That's probably worth about a couple thousand";
+                        txt.text = "Item Value: Hmm... That's probably worth about a few thousand";
                     }
                     else if (dealMaster.antique.itemBaseValue < 8500)
                     {
@@ -82,13 +82,13 @@ public class DisplayStat : MonoBehaviour {
                 }
                 else
                 {
-                    txt.text = "Item Value: $" + dealMaster.antique.itemBaseValue;
+                    txt.text = "Item Value: $" + string.Format("{0:n0}", dealMaster.antique.itemBaseValue);
                 }
             }
             if (statType == StatType.previousOffer)
             {
                 if (dealMaster.antique.playerCounterOfferPrevious != 0)
-                    txt.text = "Previous Offer: $" + dealMaster.antique.playerCounterOfferPrevious;
+                    txt.text = "Previous Offer: $" + string.Format("{0:n0}", dealMaster.antique.playerCounterOfferPrevious);
                 else
                     txt.text = "";
                 if (dealMaster.antique.gaveFinal && !dealMaster.dealOver)
@@ -97,7 +97,16 @@ public class DisplayStat : MonoBehaviour {
                 }
                 if (dealMaster.dealMade)
                 {
-                    txt.text = "Ammount Spent: $" + dealMaster.antique.playerCounterOfferPrevious;
+                    int price = dealMaster.antique.playerCounterOfferPrevious;
+                    int value = dealMaster.antique.itemBaseValue;
+                    int profit = value - price;
+                    string profitStr = "Profit +$" + string.Format("{0:n0}", profit);
+                    if (profit < 0)
+                    {
+                        profitStr = "Profit -$" + string.Format("{0:n0}", Mathf.Abs(profit));
+                    }
+
+                    txt.text = "Ammount Spent: $" + string.Format("{0:n0}", price) + "\n" + "Actual Value: $" + string.Format("{0:n0}", value) + "\n" + profitStr;
                     this.GetComponent<RectTransform>().localPosition = new Vector2(0, 0);
                 }
                 else if (dealMaster.dealOver && !dealMaster.dealMade)
